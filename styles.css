@@ -3,13 +3,14 @@
     border: 0;
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+
 }
 
 
 .display-area{
-    background-color: rgb(255, 255, 255);
-    
-
+    background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,143 +18,189 @@
 }
 
 
+    /*//////Header Area/////*/
 
-/*//////Header Area/////*/
-
-header{
-    
-    
-    background-color: gray;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-container{
-    
-
-    z-index: 10;
-    max-width: 1000px;
-    max-height: 300px;
-    
-
-    display: flex;
-    flex-direction: row;
-    margin: 2vh;
-}
-@media (min-width: 550px) {
     header{
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        width: 100vw;
+        
+        
+        background-color: var(--primary-color);
         height: 400px;
+        width: 100vw;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2vh;
     }
-}
-@media (max-width: 550px) {
-    header{
 
-        height: fit-content;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
     .header-container{
+        
 
+        z-index: 10;
+        max-width: 1000px;
+        max-height: 300px;
+        
+
+        display: flex;
+        flex-direction: row;
+        margin:  1vh 2vh;
+    }
+
+
+
+    /* Header Image Area */
+    .header-image-area{
+    
+        flex: 1;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        min-height: 250px;
 
     }
+
+    .black-gradient{
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+    }
+
+    .black-gradient::after{
+        display: block;
+        position: relative;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #000000 100%);
+        margin-top: -150px;
+        height: 150px;
+        width: 100%;
+        content: '';
+    }
+
+    .header-image-area > h1{
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+        color: white;
+        margin: 3vh;
+        z-index: 60;
+        text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        
+        
+    }
+    .small-head-text{
+        display: none;
+    }
+
+    .small-text{
+       
+        
+    } 
+    .header-image-area > img{
+
+        
+        height: 100%;
+        width:  100%;
+        object-fit:cover;
+        object-position: center;
+        z-index: 30;
+    }
+
+    /* Header Text Area */
+    .header-text-area{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 2vw;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        margin-right: 1vw;
+        justify-content: space-between;
+    }
+
+    .header-text > h2{
+        padding-bottom: 1vh;
+    }
+
+    .small-text{
+        display: none;
+    }
+    .big-text{
+        padding-bottom: 1vh;
+
+    }
+
+    /* Header Socials Area */
+    .header-socials-tray{
+
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: 5vh;
+        
+    }
+
+    .social-svg {
+        
+        width: 30px;
+        height: 30px;
+        margin-left: 1vw;
+
+    }
+    .social-svg svg{
     
-}
+        width: 100%;
+        height: 100%;
+        
 
-/* Header Image Area */
-.header-image-area{
-   
-    flex: 1;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
 
-}
+    @media (max-width: 580px) {
+        .header-image-area{
+            transform: translateY(90px);
 
-.black-gradient{
-    width: 100%;
-    height: 100%;
-    z-index: 50;
-}
+           
+        }
 
-.black-gradient::after{
-    display: block;
-    position: relative;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #000000 100%);
-    margin-top: -150px;
-    height: 150px;
-    width: 100%;
-    content: '';
-}
+        .header-image-area > h1{
+            transform: translateY(-245px);
+        }
 
-.header-image-area > h1{
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-    margin: 3vh;
-    z-index: 60;
+        .black-gradient{
+            display: none;
+        }
+    }
+
+    @media (max-width: 400px){
+        .small-head-text{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+            margin: 3vh;
+            z-index: 60;
+            text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            transform: translateY(-255px);
+            padding-bottom: 2vh;
+        }
+
+
+        .small-text{
+            display: block;
+        }
+
+        .big-text{
+           display: none;
     
-    
-}
+        }
 
-.header-image-area > img{
-   
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
-    z-index: 30;
-}
+        .header-image-area > h1{
+            display: none;
+        }
+    }
 
-/* Header Text Area */
-.header-text-area{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 2vw;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    justify-content: space-between;
-}
-
-.header-text > h2{
-    padding-bottom: 1vh;
-}
-.header-text > p{
-    padding-bottom: 1vh;
-
-}
-
-/* Header Socials Area */
-.header-socials-tray{
-
-    display: flex;
-    flex-direction: row-reverse;
-    padding-top: 5vh;
-    
-}
-
-.social-svg {
-    
-    width: 30px;
-    height: 30px;
-    margin-left: 1vw;
-
-}
-.social-svg svg{
- 
-    width: 100%;
-    height: 100%;
-    
-
-}
 /*//////Showcase Area/////*/
 
 
@@ -263,7 +310,7 @@ footer{
 
     margin-top: 3vh;
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-    background-color: #808080;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
